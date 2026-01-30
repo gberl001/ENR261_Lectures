@@ -155,16 +155,22 @@ GRAVITY = GRAVITY + 1;   % allowed — not a true constant
 		<section>
 			<h2>Quick Activity: Is this a good name?</h2>
 			<div class="legend">✗ invalid &nbsp;&nbsp; ! avoid &nbsp;&nbsp; ✓ valid</div>
-			<section data-auto-animate><p class="centered">1mile</p></section>
-			<section data-auto-animate><p class="centered" style="color:#ff6b6b">✗ 1mile</p></section>
-			<section data-auto-animate><p class="centered">clear</p></section>
-			<section data-auto-animate><p class="centered" style="color:#ffdd57">! clear</p></section>
-			<section data-auto-animate><p class="centered">MyVariable</p></section>
-			<section data-auto-animate><p class="centered" style="color:#7dff9b">✓ MyVariable</p></section>
-			<section data-auto-animate><p class="centered">x</p></section>
-			<section data-auto-animate><p class="centered" style="color:#ffdd57">! x</p></section>
-			<section data-auto-animate><p class="centered">DEBUG_ENABLED</p></section>
-			<section data-auto-animate><p class="centered" style="color:#7dff9b">✓ DEBUG_ENABLED</p></section>
+			<div style="margin-top: 1.5rem;">
+				<p class="centered fragment current-visible" data-fragment-index="1">1mile</p>
+				<p class="centered fragment current-visible" data-fragment-index="2" style="color:#ff6b6b">✗ 1mile</p>
+
+				<p class="centered fragment current-visible" data-fragment-index="3">clear</p>
+				<p class="centered fragment current-visible" data-fragment-index="4" style="color:#ffdd57">! clear</p>
+
+				<p class="centered fragment current-visible" data-fragment-index="5">MyVariable</p>
+				<p class="centered fragment current-visible" data-fragment-index="6" style="color:#7dff9b">✓ MyVariable</p>
+
+				<p class="centered fragment current-visible" data-fragment-index="7">x</p>
+				<p class="centered fragment current-visible" data-fragment-index="8" style="color:#ffdd57">! x</p>
+
+				<p class="centered fragment current-visible" data-fragment-index="9">DEBUG_ENABLED</p>
+				<p class="centered fragment current-visible" data-fragment-index="10" style="color:#7dff9b">✓ DEBUG_ENABLED</p>
+			</div>
 		</section>
 
 
@@ -187,9 +193,8 @@ GRAVITY = GRAVITY + 1;   % allowed — not a true constant
 
 		<!-- Slide: Data Types (Adjusted) -->
 		<section>
-			<h2>Numbers and Data Types in MATLAB 🧮</h2>
-
 			<section>
+				<h2>Numbers and Data Types in MATLAB 🧮</h2>
 				<h3>Double (Default Numeric)</h3>
 				<ul>
 					<li>~15 digits of precision; default for numbers.</li>
