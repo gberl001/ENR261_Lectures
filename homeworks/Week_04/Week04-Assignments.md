@@ -11,11 +11,11 @@
 
       clc;
       clear;
-* All CSV files will generally be created by your program. This week, the only starter file provided is `gear_data.csv`.
+* All CSV files will generally be created by your program. This week, the only starter file provided is `gear_data.csv`. `inventory.csv` is **not** provided and should be created by your program when needed.
 * There are tests for each assignment. If they are all functions, you may run them to confirm your functions perform as expected.
   * Ensure the test files are in the same folder as your functions.
 * Outputs should resemble the examples shown; they do not need to be exact as long as sufficient information is presented.
-* Any script or function that accepts a filename input/parameter must verify that the file exists before attempting to read or write. Functions should return a status of `-1` when the file is missing. Scripts are responsible for informing the user.
+* Handle missing-file behavior according to each assignment's specific instructions below.
 * Tip: Store UPC values in your CSV as strings. When you need to compare or do math with a UPC (for example, matching against user input), convert it on the fly with `str2double` or similar so you are always working with numbers during calculations.
 
 ---
@@ -150,7 +150,7 @@ The plot shall include:
 You can test your functionality running the following test files:
 
 * `testCalculateTrajectory.m` tests `calculateTrajectory()`
-* `testGetOptimalTrajectory.m` tests `getOptimalTrajectory()`
+* `testGetOptimalTrajectoryAngle.m` tests `getOptimalTrajectoryAngle()`
 * `testProjectileComparisonAssignment.m` is an integration test, it tests that the scripts function together properly.
   * Note that there is another test `testProjectileComparison.m` which is used by this test, you do not need to run this test, if you do, it will fail but this is normal.
 
@@ -158,7 +158,7 @@ You can test your functionality running the following test files:
 
 1. Submit the script `projectileComparison.m`
 2. Include comments explaining the calculation for the optimal angle and the range formula.
-3. Submit the functions `calculateTrajectory.m` and `getOptimalTrajectory.m`
+3. Submit the functions `calculateTrajectory.m` and `getOptimalTrajectoryAngle.m`
 
 ---
 
@@ -398,6 +398,7 @@ You can test your functionality by running the following tests:
 - `testAddItemToStock.m` tests the `addItemToStock()` function by ensuring that new items are added correctly to the CSV.
 - `testGetStockQty.m` tests the `getStockQty()` function by validating that the correct quantity is retrieved for a given UPC.
 - `testGetInventoryList.m` tests the `getInventoryList()` function by verifying that the entire inventory can be read and displayed properly from the CSV.
+- `testKitchenInventoryScript.m` can be used to check that your script is structured correctly (script format and expected function call usage).
 
 ### Deliverables
 
@@ -406,7 +407,7 @@ You can test your functionality by running the following tests:
 3. Ensure your program handles input and output properly using the provided CSV file, and provide comments explaining
    each part of the code.
 
-### Example `inventory.csv` (Provided on GitHub)
+### Example `inventory.csv` (Not Provided; Your Program Should Create It)
 
 ```csv
 upc,ingredient,qty

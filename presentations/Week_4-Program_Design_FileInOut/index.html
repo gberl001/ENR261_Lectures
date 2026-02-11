@@ -114,22 +114,22 @@
 
 
 		<section data-markdown>
-        <textarea data-template>
+            <textarea data-template>
             # Week 4: Program Design 🛠 and File Import/Export 💾
 
-			## Objectives:
-			* Understand the program design process 🛣️.
-			* Learn to create and use functions effectively 🔧.
-			* Import and export data in various formats 📂.
+            ## Objectives:
+            * Understand the program design process 🛣️.
+            * Learn to create and use functions effectively 🔧.
+            * Import and export data in various formats 📂.
 
-			---
+            ---
 
-			## Topics Covered:
-			* Program Design and Algorithm Development 🧩
-			* MATLAB Functions 📜
-			* File Import and Export Utilities 📥📤
+            ## Topics Covered:
+            * Program Design and Algorithm Development 🧩
+            * MATLAB Functions 📜
+            * File Import and Export Utilities 📥📤
 
-		</textarea>
+            </textarea>
 		</section>
 
 		<section data-markdown>
@@ -342,9 +342,11 @@
 
 			Now let's pass the following:
 			``` matlab
-			myDogsName = 'Buddy';
+			myDogsName = input("Enter your dog's name: ", 's');
 			greet(myDogsName);
 			```
+
+_Assume the user enters Buddy_
 
 			What do we get?
 
@@ -623,7 +625,6 @@
 						<li><strong>Variable Names (Headers)</strong>:
 							<ul>
 								<li><code>readtable</code>: Assumes the first row contains headers (<code>'ReadVariableNames', true</code>).</li>
-								<li><code>readmatrix</code> and <code>readcell</code>: Do not read headers by default (<code>'ReadVariableNames', false</code>).</li>
 							</ul>
 						</li>
 						<li><strong>Data Types</strong>: MATLAB automatically detects data types based on the content.</li>
@@ -678,7 +679,6 @@
 			#### Default Behavior:
 
 			- `readtable`: Assumes the first row contains variable names (`'ReadVariableNames', true`).
-			- `readmatrix`: Does not read variable names by default (`'ReadVariableNames', false`).
 
 			#### Specifying Headers:
 
@@ -890,14 +890,10 @@
 
 			### 4. Indexing Tables
 			- **Dot-notation**: `dataTable.Age` returns the Age column as an array.
-			- **Brace-index**: `dataTable{:, 'Age'}` also returns the numeric array for 'Age'.
 
 			```matlab
 			% Dot notation
 			ageArray = dataTable.Age;
-
-			% Brace indexing
-			ageArray2 = dataTable{:, 'Age'};
 			```
 
 			💡 **Tip**: Dot notation is convenient for referencing columns by their variable name.
@@ -910,17 +906,6 @@
 			dataTable.Properties.VariableNames{'Age'} = 'YearsOld';
 			```
 			- Now `dataTable.YearsOld` is valid.
-
-			---
-
-			### 6. Summaries and Basic Operations
-
-			- **summary(dataTable)**: Provides a statistical summary (min, max, etc.) for each column.
-			- You can do **logical indexing** on table columns:
-			```matlab
-			adultsOnly = dataTable(dataTable.YearsOld >= 18, :);
-			```
-			- Great for quickly filtering or subsetting table rows.
 
 			---
 
@@ -948,8 +933,9 @@
 			fclose(fileID);
 			```
 
-			- The second argument `'r'` in fopen() says we want to open this as **read only**
-			- **`formatSpec`**: A string that specifies the format of each column (e.g., `'%f %s %d'`).
+			- The second argument `'r'` in `fopen()` says we want to open this as **read only**
+			- **`formatSpec`**: A string that specifies the format of each column
+				- (e.g., `'%f %s %d'`).
 			- **`delimiter`**: Character(s) that separate fields (e.g., `','` for CSV files).
 			- **`HeaderLines`**: Number of lines to skip at the beginning of the file.
 
@@ -1076,6 +1062,7 @@
 			```
 
 			- **`formatSpec`**: Format of each variable (e.g., `'%d %s %f\n'`).
+
 			⚠️ **Gotcha**: Notice the `fileID` in `fprintf`?
 
 			--
@@ -1085,7 +1072,7 @@
 			```matlab
 			% Sample data
 			IDs = [1; 2; 3];
-			Names = {'Alice'; 'Bob'; 'Charlie'};
+			Names = ["Alice"; "Bob"; "Charlie"];
 			Scores = [85.5; 90.0; 88.0];
 
 			% Open the file
@@ -1179,7 +1166,7 @@
 				<span class="fragment fade-in-then-out current-visible" data-fragment-index="1">
 					<h4 id="reading-from-text-files-">Reading from Text Files:</h4>
 					<ul>
-						<li>Use <code>readtable</code> or <code>readmatrix</code> for CSV and TXT files.</li>
+						<li>Use <code>readtable</code> for CSV and TXT files.</li>
 						<li><p>Example:</p>
 						</li>
 					</ul>
@@ -1230,20 +1217,6 @@
 
 		<section>
 			<h1>Software Engineering</h1>
-		</section>
-
-		<section data-markdown>
-			<textarea data-template>
-				# Heading 1
-				## Heading 2
-				### Heading 3
-				#### Heading 4
-				##### Heading 5
-				```matlab
-				fprintf('some stuff with a string (%s)', "heyo");
-				```
-				Using inline `code` blocks
-			</textarea>
 		</section>
 	</div>
 </div>

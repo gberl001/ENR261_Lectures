@@ -88,7 +88,7 @@ GRAVITY   = 9.81;  % m/s^2 (positive magnitude)
 heightFinal = height0 + velocity0 * time - 0.5 * GRAVITY * time^2;
 fprintf("The final height is %.2f meters.\n", heightFinal);
 </code></pre>
-					<pre class="output">The final height is X meters</pre>
+					<pre class="output">The final height is n.nn meters</pre>
 				</div>
 
 				<p class="alert-info alert">💡 <strong>Tip</strong>: Always prompt users clearly so they know what type
@@ -161,7 +161,7 @@ disp(someVariable);
 					- Using character vectors and `[]` (legacy style):
 					```matlab
 					area = 78.5398;
-					disp(['Area: ' num2str(area)])
+					disp(['Area: ', num2str(area)])
 					```
 
 					Tip: `string(x)` converts numbers to string for use with `+`.
@@ -190,10 +190,7 @@ disp(someVariable);
 					<li><code>%d</code> or <code>%i</code>: Integer</li>
 					<li><code>%f</code>: Floating-point number</li>
 					<li><code>%s</code>: String</li>
-					<li><code>%g</code>: Compact floating-point format</li>
-					<li><code>%5.2f</code>: Floating-point number with 5 characters wide and 2 digits after the decimal
-						point
-					</li>
+					<li><code>%5.2f</code>: Floating-point number, 5 characters wide and 2 digits after the decimal point</li>
 					<li><code>\n</code>: Newline character</li>
 					<li><code>\t</code>: Tab character</li>
 					<li><code>%%</code>: Escaped percent</li>
@@ -203,7 +200,7 @@ disp(someVariable);
 
 			<section>
 				<h4>Using <code>fprintf</code>:</h4>
-				<p>Here’s how <code>fprintf</code> works to store formatted text:</p>
+				<p>Here’s how <code>fprintf</code> works to display formatted text:</p>
 				<div class="code-output-container">
 <pre><code class="matlab hljs language-matlab">fprintf("Integer: %d\n", 42);
 fprintf("Floating-point: %8.2f\n", 3.14159);
@@ -216,13 +213,11 @@ String: Hello, world!
 				</div>
 				<h4>Another Example:</h4>
 				<div class="code-output-container">
-            <pre><code class="matlab hljs language-matlab">fprintf("Hi");
-fprintf(", my name is");
-fprintf(", my name is");
-fprintf(", my name is");
-fprintf(", chka chka Slim Shady\n");
+            <pre><code class="matlab hljs language-matlab">fprintf("t=0s:  %.1f C", 21.3);
+fprintf("  t=5s:  %.1f C", 22.1);
+fprintf("  t=10s: %.1f C\n", 22.8);
 </code></pre>
-					<pre class="output fragment fade-left">Hi, my name is, my name is, my name is, chka chka Slim Shady</pre>
+					<pre class="output fragment fade-left">t=0s:  21.3 C  t=5s:  22.1 C  t=10s: 22.8 C</pre>
 				</div>
 				<p class="fragment fade-up alert-warning alert">⚠️ <strong>Warning:</strong> Don't forget
 					<code>\n</code>
@@ -371,9 +366,11 @@ Banana          678.90</pre>
 				<div class="code-output-container">
         <pre><code class="matlab hljs language-matlab">x = 3.14159;
 disp("Area: " + string(x))
+disp(['Area: ', num2str(x)])
 fprintf("Area: %.2f\n", x)
 </code></pre>
 					<pre class="output">Area: 3.14159
+Area: 3.14159
 Area: 3.14</pre>
 				</div>
 				<p class="note-card"><code>disp</code> prints the full value as a simple message; <code>fprintf</code>
@@ -409,10 +406,12 @@ The value is     3.14</pre>
 				</p>
 				<div class="code-output-container">
             <pre><code class="matlab hljs language-matlab">fileIncrement = 1;
-fileName = sprintf("My file (%i)", fileIncrement);
-disp(fileName); % Outputs: My file (1)
+fileName = sprintf("My file (%i).txt", fileIncrement);
+fid = fopen(fileName, "w"); % create an empty file
+fclose(fid);
+disp(fileName); % Outputs: My file (1).txt
 </code></pre>
-					<pre class="output">My file (1)</pre>
+					<pre class="output">My file (1).txt</pre>
 				</div>
 			</section>
 		</section>
@@ -437,10 +436,12 @@ disp(fileName); % Outputs: My file (1)
 			<section>
 
 				<h4>Example:</h4>
-				<pre><code class="matlab hljs language-matlab">a = 5;
+<pre><code class="matlab hljs language-matlab">a = 5;
 b = 3;
 if a > b
     disp("a is greater than b");
+elseif a == b
+    disp("a is equal to b");
 end
 </code></pre>
 
@@ -555,8 +556,8 @@ end
 				<p>Think of an <code>if-elseif-else</code> statement as deciding what to eat based on your mood.</p>
 				<p><code>if</code> I'm very hungry, eat a meal.</p>
 				<p><code>elseif</code> I'm a little hungry, grab a snack.</p>
-				<p><code>elseif</code> I'm thirsty, grab a drink</p>
-				<p><code>else</code> (I'm not hungry) don't eat.</p>
+				<p><code>elseif</code> I'm thirsty, grab a drink.</p>
+				<p><code>else</code> (I'm not hungry or thirsty), do nothing.</p>
 				<p class="alert alert-info">💡 <strong>Note</strong>: <code>elseif</code> and <code>else</code> are not
 					always necessary</p>
 				<p class="alert alert-info">💡 <strong>Note</strong>: you can have many <code>elseif</code>s</p>
@@ -566,7 +567,7 @@ end
 		<!-- Switch statement next -->
 		<section>
 			<section>
-				<h3>Switch Statement:</h3>
+				<h3>Switch Statement (Optional):</h3>
 				<p><strong>Definition</strong>: A <code>switch</code> statement allows you to select one of many code
 					blocks
 					to execute.</p>
@@ -893,16 +894,8 @@ end</code></pre>
 			</section>
 			<section data-markdown>
       <textarea data-template>
-      ## Practice B: Choose units
-      - Ask user for units (`m` or `ft`) with `switch`
-      - Convert output if needed
-      - Use `for` to print a small table of times
-      </textarea>
-			</section>
-			<section data-markdown>
-      <textarea data-template>
       ## Exit Ticket
-      1. When choose `while` over `for`?
+      1. When might you choose `while` over `for`?
       2. What does `%8.3f` do?
       3. What's the command for getting a user's input?
       </textarea>
