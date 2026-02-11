@@ -15,12 +15,12 @@ Perform a guided tour of the MATLAB interface.
 - Open MATLAB and explore the different components:
     - **Command Window**: Use it to enter commands and see immediate results.
     - **Workspace**: Check how variables appear as you create them.
-    - **Editor**: Create a new script file and save it with a name like `week1_script.m`.
+    - **Editor**: Create a new script file and save it as `week1_script.m` (practice file; optional and not graded).
     - **Command History**: Observe how it records the commands you enter.
 
 ### Deliverables
 
-1. `report.txt` (1–2 paragraphs) describing the purpose of each interface component and your observations while exploring.
+1. `report.txt` (1–2 total paragraphs) that briefly describes the purpose of the Command Window, Workspace, Editor, and Command History, plus at least one observation from your exploration.
 
 ---
 
@@ -32,12 +32,13 @@ Practice using basic MATLAB commands and performing simple calculations.
 
 ### Instructions
 
-- In the Command Window, perform basic arithmetic with variables.
-- Use `clc` to clear the Command Window, `clear` to remove variables from the Workspace, and `whos` to inspect current variables.
+- Create `week1_commands.m` and include several basic arithmetic operations with variables.
+- In the script, use `clc` to clear the Command Window, `clear` to remove variables from the Workspace, and `whos` to inspect current variables.
+- Run the script from the Command Window.
 
 ### Deliverables
 
-1. `week1_commands.m` with several arithmetic operations. Include comments explaining what each command does. Additionally, answer:
+1. `week1_commands.m` with several arithmetic operations. Include comments explaining what each command does. At the end of the file, answer the following questions using comments:
     - What does `clc` do?
     - What happens when you use `clear`?
     - What does `whos` display?
@@ -81,8 +82,9 @@ Write a simple script to perform a basic task; calculate the area of a rectangle
 
 - Create a new script `calculate_area.m`.
 - Compute the area of a rectangle using variables for length and width.
-- Print the result in a user-friendly format using `disp` or `fprintf` to match the example format:
-  - The area of a <length> by <width> rectangle is <result>
+- Print the result using this sentence structure:
+  - `The area of a <length> by <width> rectangle is <result>`
+- Use `fprintf` (preferred) or `disp` with string concatenation.
 
 ### Tips
 - Use `fprintf` for mixed text and numbers, or read `help disp` to see options for displaying values.
@@ -108,9 +110,9 @@ Practice debugging by identifying and fixing errors in a MATLAB script.
 
 ### Instructions
 
-1. Copy the provided buggy MATLAB code to `buggy_script.m`.
-2. Run it and observe any errors or unexpected behaviors.
-3. Identify and fix the bugs (syntax, logic, or runtime). Use comments to explain each fix you make.
+1. Copy the provided buggy MATLAB code to `buggy_script.m` and keep this original file unchanged.
+2. Run `buggy_script.m` and observe any errors or unexpected behaviors.
+3. Create `fixed_script.m` with your corrected version. Identify and fix syntax, logic, or runtime bugs, and use comments to explain each fix.
 
 #### Example Buggy Script (buggy_script.m)
 
@@ -124,6 +126,7 @@ disp('The area of the circle is: ', area) % Incorrect use of disp function
 
 ### Deliverables
 
+- `buggy_script.m` containing the original provided buggy code.
 - `fixed_script.m` with comments explaining the errors you found and how you fixed them.
 - `debugging_report.txt` including:
   - A summary of the errors encountered.
